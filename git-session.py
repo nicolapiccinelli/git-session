@@ -49,7 +49,7 @@ if not db_exists:
     db_folder_exists = os.path.isdir(
         os.path.join(os.environ['HOME'], app_folder_name))
     if not db_folder_exists:
-        os.makedirs(db_folder_exists)
+        os.makedirs(os.path.join(os.environ['HOME'], app_folder_name))
 
     # create the empty db
     empty_db = []
