@@ -130,7 +130,7 @@ if args.rm_user:
     nickname_to_be_removed = args.rm_user
 
     # get the list of matching user by nickname
-    matches = [x for x in dbcontext if x["nickname"] == nickname_to_be_removed]
+    matches = [x for x in dbcontext if x.nickname == nickname_to_be_removed]
 
     # erase the entry and update the db
     if len(matches) > 0:
