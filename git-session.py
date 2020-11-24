@@ -169,8 +169,8 @@ if args.logout:
 
 if not wrapper_command_executed:
 
-    name_is_setup = os.popen("git config --get user.name").read()
-    email_is_setup = os.popen("git config --get user.email").read()
+    name_is_setup = os.popen("git config --get user.name").read().rstrip("\n")
+    email_is_setup = os.popen("git config --get user.email").read().rstrip("\n")
 
     if len(name_is_setup) <= 0 or len(email_is_setup) <= 0:
         print("Missing username configuration")
@@ -190,4 +190,6 @@ if not wrapper_command_executed:
         cmd_string = " ".join(cmd_string_list)
 
         # running the desired command
+        # providing information about the running user
+        print("Running git with: " + name_is_setup + "<" + email_is_setup + ">")
         os.system(cmd_string)
