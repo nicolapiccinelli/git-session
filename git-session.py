@@ -180,7 +180,10 @@ if not wrapper_command_executed:
         cmd_string_list = []
 
         # convert the list of strings into a single spaced string
-        args_to_git_string = " ".join(args_to_git)
+        if len(args_to_git) > 0:
+            args_to_git_string = "\"" + "\" \"".join(args_to_git) + "\""
+        else:
+            args_to_git_string = ""
 
         # append to the base git command the arguments
         cmd_string_list.append(prefix_git_cmd_string)
